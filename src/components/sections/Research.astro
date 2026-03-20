@@ -1,0 +1,312 @@
+---
+import { aboutInformation } from '../../constants/about';
+import { researchInformation } from '../../constants/research';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{aboutInformation.firstName} {aboutInformation.lastName}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface: #f8fafc;
+      --surface2: #ffffff;
+      --border: rgba(0,0,0,0.07);
+      --border2: rgba(0,0,0,0.12);
+      --accent: #4f8ef7;
+      --accent2: rgba(0,0,0,0.07);
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: transparent;
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 2rem 3rem 2rem;
+      max-width: 900px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent2); }
+
+    /* ── OVERVIEW IMAGE ── */
+    .overview-image-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      margin-top: -3rem;
+      position: relative; z-index: 1;
+    }
+    .overview-image {
+      width: 100%; height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* ── ACCORDION SECTION ── */
+    .accordion-section {
+      padding: 2rem 3rem 3rem;
+      max-width: 900px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid var(--border2);
+    }
+    .accordion-item:first-child {
+      border-top: 1px solid var(--border2);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.35rem 0;
+      background: none; border: none;
+      cursor: default;
+      text-align: left;
+      gap: 1.5rem;
+      color: var(--text);
+    }
+
+    .accordion-chevron-btn {
+      background: none; border: none; padding: 4px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      border-radius: 4px; transition: background 0.15s; flex-shrink: 0;
+    }
+    .accordion-chevron-btn:hover { background: rgba(79,142,247,0.08); }
+    .accordion-chevron-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .accordion-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #000000;
+    }
+    .accordion-title em {
+      color: var(--accent2);
+      font-style: italic;
+    }
+
+    .accordion-chevron {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      color: var(--muted);
+      transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), color 0.2s;
+    }
+    .accordion-item.is-open .accordion-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+
+    .accordion-drawer {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s cubic-bezier(0.23,1,0.32,1), opacity 0.3s ease;
+    }
+    .accordion-item.is-open .accordion-drawer {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    .accordion-drawer-inner {
+      padding: 0 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem 3rem;
+    }
+
+    .drawer-section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .drawer-list {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      list-style-type: decimal;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .drawer-list-item {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .drawer-text {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.8;
+    }
+
+    .drawer-full { grid-column: 1 / -1; }
+
+    .drawer-divider {
+      grid-column: 1 / -1;
+      height: 1px; background: var(--border);
+    }
+
+    .drawer-pills {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+    .drawer-pill {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem; border-radius: 100px;
+      background: rgba(79,142,247,0.07);
+      border: 1px solid rgba(79,142,247,0.18);
+      color: var(--muted);
+    }
+
+    .drawer-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+      color: var(--accent); text-decoration: none; letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(79,142,247,0.2);
+      transition: border-color 0.2s;
+      margin-top: 0.4rem;
+    }
+    .drawer-link:hover { border-color: var(--accent); }
+    .drawer-link svg { width: 11px; height: 11px; }
+
+    @media (max-width: 600px) {
+      .hero, .accordion-section, .overview-image-container { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .accordion-drawer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Research <em>Themes</em></h1>
+    <p>{researchInformation.general}</p>
+  </div>
+
+  <div class="overview-image-container">
+    <img src={researchInformation.picture} alt="Research Overview" class="overview-image" />
+  </div>
+
+  <div class="accordion-section">
+
+    {researchInformation.topics.map((topic) => (
+      <div class="accordion-item is-open" id={`item-${topic.id}`}>
+        <div class="accordion-trigger">
+          <span class="accordion-title"><em>{topic.id}: </em>{topic.title}</span> 
+          <button class="accordion-chevron-btn" aria-expanded="true" aria-controls={`drawer-${topic.id}`}>
+            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+          </button>
+        </div>
+        <div class="accordion-drawer" id={`drawer-${topic.id}`} role="region">
+          <div class="accordion-drawer-inner">
+            {topic.sections.map((section) => (
+              <div>
+                <div class="drawer-section-title">{section.label}</div>
+                <p class="drawer-text">{section.text}</p>
+                {section.items && (
+                  <ol class="drawer-list">
+                    {section.items.map((item) => (
+                      <li class="drawer-list-item">{item}</li>
+                    ))}
+                  </ol>
+                )}
+                {section.links && section.links.map((link) => (
+                <a
+                  href={link.href}
+                  class="drawer-link"
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                >
+                  {link.label}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    {link.external
+                      ? <><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></>
+                      : <path d="M5 12h14M12 5l7 7-7 7"/>
+                    }
+                  </svg>
+                </a>
+               ))}
+              </div>
+            ))}
+            <div class="drawer-divider"></div>
+            <div>
+              <div class="drawer-section-title">Methods</div>
+              <div class="drawer-pills">
+                {topic.methods.map((m) => (
+                  <span class="drawer-pill">{m}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+              {topic.support && (
+                <>
+                  <div class="drawer-section-title">Support</div>
+                  <p class="drawer-text" set:html={topic.support} />
+                  {topic.link && (
+                  <a
+                    href={topic.link.href}
+                    class="drawer-link"
+                    target={topic.link.external ? "_blank" : undefined}
+                    rel={topic.link.external ? "noopener noreferrer" : undefined}
+                  >
+                    {topic.link.label}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      {topic.link.external
+                        ? <><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></>
+                        : <path d="M5 12h14M12 5l7 7-7 7"/>
+                      }
+                    </svg>
+                  </a>
+                )}
+                </>
+              )}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+
+  </div>
+
+</body>
+
+<script>
+  document.querySelectorAll('.accordion-chevron-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('is-open');
+
+      if (isOpen) {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+      }
+    });
+  });
+</script>
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "avira7.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/advikvira/advikvira.github.io.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/advikvira/advikvira.github.io/issues"
+  },
+  "homepage": "https://github.com/advikvira/advikvira.github.io#readme",
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/tailwind": "^6.0.2",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource/road-rage": "^5.2.8",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.18.1",
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "prettier": "3.8.1",
+    "prettier-plugin-astro": "0.14.1",
+    "tailwindcss": "^3.4.19"
+  }
+}

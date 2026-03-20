@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "slug": {
+      "type": "string"
+    },
+    "client": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "UI/UX Design",
+        "Web Design",
+        "Art Direction",
+        "Product Design",
+        "Branding"
+      ]
+    },
+    "services": {
+      "type": "string",
+      "maxLength": 65
+    },
+    "year": {
+      "type": "string",
+      "maxLength": 4
+    },
+    "featuredImage": {
+      "type": "string"
+    },
+    "imageTwo": {
+      "type": "string"
+    },
+    "imageThree": {
+      "type": "string"
+    },
+    "imageFour": {
+      "type": "string"
+    },
+    "liveSite": {
+      "type": "string",
+      "format": "uri"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 350
+    },
+    "isFeatured": {
+      "type": "boolean"
+    },
+    "isDraft": {
+      "type": "boolean"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "client",
+    "category",
+    "services",
+    "year",
+    "featuredImage",
+    "imageTwo",
+    "imageThree",
+    "imageFour",
+    "liveSite",
+    "description",
+    "isFeatured",
+    "isDraft"
+  ]
+}
