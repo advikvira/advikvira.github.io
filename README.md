@@ -1,6 +1,6 @@
 # Personal Webpage
 
-🔗 <a href="http://www.advikdvira.com/" target="_blank">http://www.advikdvira.com/</a>
+🔗 <a href="http://www.advikdvira.com/" target="_blank">https://www.advikdvira.com/</a>
 
 ## Tech Stack
 
