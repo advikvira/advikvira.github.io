@@ -13,7 +13,12 @@ export const newsUpdates: NewsUpdate[] = [
 //     date: "[03/20/2026]",
 //   },
 
-{
+  {
+    title: "KSCO manuscript recieved the 2026 Sigma Xi Best Paper Award",
+    url: "https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/0/283/files/2026/03/2026_SigmaXi_Research_Award_Winner.pdf",
+    date: "[03/23/2026]",
+  },
+  {
     title: "Submitted manuscript to JCP on grain charging simulations",
     url: "https://arxiv.org/abs/2602.17332",
     date: "[02/19/2026]",
