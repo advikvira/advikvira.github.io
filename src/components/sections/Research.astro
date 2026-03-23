@@ -15,12 +15,12 @@ import { researchInformation } from '../../constants/research';
     :root {
       --surface: #f8fafc;
       --surface2: #ffffff;
-      --border: rgba(0,0,0,0.07);
+      --border:  rgba(255, 255, 255, 0.07);
       --border2: rgba(0,0,0,0.12);
       --accent: #4f8ef7;
       --accent2: rgba(0,0,0,0.07);
-      --text: #1e293b;
-      --muted: #64748b;
+      --text: #e8eaf0;
+      --muted: #f5f8ff;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,18 +41,21 @@ import { researchInformation } from '../../constants/research';
       position: relative; z-index: 1;
     }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-family: 'Playfair Display', serif; 
+      font-size: clamp(2.8rem, 6vw, 4.5rem); color: var(--text);
       font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem;
     }
     .hero h1 em { font-style: italic; color: var(--accent2); }
+    .hero-general {
+      color: var(--muted); /* or any color / variable you want */
+    }
 
     /* ── OVERVIEW IMAGE ── */
     .overview-image-container {
       max-width: 900px;
       margin: 0 auto;
       padding: 0 3rem;
-      margin-top: -3rem;
+      margin-top: -3rem; 
       position: relative; z-index: 1;
     }
     .overview-image {
@@ -98,7 +101,7 @@ import { researchInformation } from '../../constants/research';
       font-family: 'Playfair Display', serif;
       font-size: 1.25rem; font-weight: 700;
       letter-spacing: -0.01em;
-      color: #000000;
+      color: var(--text);
     }
     .accordion-title em {
       color: var(--accent2);
@@ -200,7 +203,7 @@ import { researchInformation } from '../../constants/research';
 
   <div class="hero">
     <h1>Research <em>Themes</em></h1>
-    <p>{researchInformation.general}</p>
+    <p class="hero-general">{researchInformation.general}</p>
   </div>
 
   <div class="overview-image-container">
