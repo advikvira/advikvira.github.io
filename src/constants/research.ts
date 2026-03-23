@@ -1,7 +1,7 @@
 import { Space } from "lucide-react";
 
 export const researchInformation = {
-  picture: "/attachments/overview-v2.png",
+  picture: "/attachments/overview-v3.png",
   general: `My research interests lie at the intersection of materials science, 
             planetary science, and space physics, approached from a physics perspective 
             using both computational and experimental methods.`,
