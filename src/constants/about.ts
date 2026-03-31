@@ -14,7 +14,7 @@ export const aboutInformation = {
   bio: `I am a <u>physicist</u> with a background in both computational and experimental approaches.
         I earned my Ph.D. in Physics from the <strong>Georgia Institute of Technology</strong>, where I simulated 
         radiation shielding composites to optimize its internal structure and analyzed Apollo rocks 
-        at an atomic-scale using scanning transmission electron microscopy.<br><br>
+        at an atomic-scale using transmission electron microscopy.<br><br>
 
         Before graduate school, I worked at <strong>Los Alamos National Laboratory</strong> in the 
         space division on near-Earth satellites and at the <strong>Harvard-Smithsonian Center 
