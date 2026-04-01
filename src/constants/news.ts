@@ -31,8 +31,10 @@ export const newsUpdates: NewsUpdate[] = [
     date: "[03/23/2026]",
   },
   {
-    title: "Submitted manuscript to JCP on grain charging simulations",
-    url: "https://arxiv.org/abs/2602.17332",
+    titleParts: [
+      { text: "Submited ", url: null },
+      { text: "grain charging manuscript to J. Comput. Phys.", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6352017" },
+    ],
     date: "[02/19/2026]",
   },
   {

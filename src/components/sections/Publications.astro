@@ -1,5 +1,20 @@
 ---
 import { aboutInformation } from '../../constants/about';
+import { publicationInformation } from '../../constants/publications';
+
+const badgeClass: Record<string, string> = {
+  published: 'badge-published',
+  review:    'badge-review',
+  submitted: 'badge-submitted',
+  notpeer:   'badge-notpeer',
+};
+
+const badgeLabel: Record<string, string> = {
+  published: 'Published',
+  review:    'Under Review',
+  submitted: 'Submitted',
+  notpeer:   'Not Peer Reviewed',
+};
 ---
 
 <!DOCTYPE html>
@@ -45,39 +60,13 @@ import { aboutInformation } from '../../constants/about';
       pointer-events: none; z-index: 0; opacity: 0.4;
     }
 
-    /* ── HEADER ── */
-    header {
-      position: relative; padding: 2.5rem 3rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(79,142,247,0.04) 0%, transparent 100%);
-      z-index: 10;
-    }
-    .header-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
-    .header-name span { color: var(--accent); }
-    nav { display: flex; gap: 0.25rem; }
-    nav a {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      color: var(--muted); text-decoration: none; padding: 0.4rem 0.9rem;
-      border-radius: 4px; border: 1px solid transparent;
-      transition: all 0.2s; letter-spacing: 0.04em;
-    }
-    nav a:hover, nav a.active { color: var(--text); border-color: var(--border); background: var(--surface2); }
-
     /* ── HERO ── */
     .hero { padding: 2rem 3rem 0.5rem; max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-    .eyebrow {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-      letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase;
-      margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0rem;
-    }
-    .eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); opacity: 0.4; }
     .hero h1 {
       font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem);
       font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 0.2rem;
       color: #ffffff;
     }
-    .hero h0 em { font-style: italic; color: var(--accent2); }
     .hero-meta { display: flex; gap: 2.5rem; margin-top: 0rem; flex-wrap: wrap; }
     .hero-stat { display: flex; flex-direction: column; gap: 0.1rem; }
     .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; }
@@ -156,7 +145,7 @@ import { aboutInformation } from '../../constants/about';
       line-height: 1.35; color: var(--text); transition: color 0.2s; margin-bottom: 0.3rem;
     }
     .pli-authors { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
-    .pli-authors strong { color: var(--accent2); font-weight: 400; }
+    .pli-authors :global(strong) { color: var(--accent2); font-weight: 700; }
 
     /* ── Status badges ── */
     .status-badge {
@@ -170,19 +159,8 @@ import { aboutInformation } from '../../constants/about';
     .badge-submitted { color: var(--accent2); border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
     .badge-notpeer   { color: var(--muted); border-color: var(--border); background: transparent; }
 
-    /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--border); padding: 2rem 3rem; position: relative; z-index: 1; }
-    .footer-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; }
-    .footer-social { display: flex; gap: 0.5rem; }
-    .footer-social a { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--border); color: var(--muted); background: var(--surface); transition: all 0.2s; }
-    .footer-social a:hover { color: var(--accent); border-color: rgba(79,142,247,0.4); background: var(--surface2); }
-    .footer-social svg { width: 15px; height: 15px; }
-
     @media (max-width: 700px) {
-      header { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
       .hero, .pub-section { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .footer-inner { flex-direction: column; gap: 1.5rem; align-items: center; }
     }
   </style>
 </head>
@@ -205,250 +183,52 @@ import { aboutInformation } from '../../constants/about';
       </a>
     </div>
     <div class="hero-meta">
-      <div class="hero-stat"><span class="hero-stat-num">13</span><span class="hero-stat-label">Published</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Under Review</span></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">{publicationInformation.stats.published}</span>
+        <span class="hero-stat-label">Published</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">{publicationInformation.stats.underReview}</span>
+        <span class="hero-stat-label">Under Review</span>
+      </div>
     </div>
   </div>
 
   <div class="pub-section">
     <div id="allPubs">
-
-      <!-- 01 — Under Review -->
-      <div class="pub-list-item" data-url="https://doi.org/10.2139/ssrn.6352017">
-        <span class="pli-index">01</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Journal of Computational Physics · 2026</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-review">Under Review</span>
+      {publicationInformation.publications.map((pub) => (
+        <div class="pub-list-item" data-url={pub.url ?? ""}>
+          <span class="pli-index">{String(pub.id).padStart(2, '0')}</span>
+          <div class="pli-body">
+            <div class="pli-meta">
+              <span class="pli-venue">{pub.venue} · {pub.year}</span>
+              <span class="pli-dot"></span>
+              <span class={`status-badge ${badgeClass[pub.status]}`}>
+                {badgeLabel[pub.status]}
+              </span>
+              {pub.tags?.map((tag) => (
+                <>
+                  <span class="pli-dot"></span>
+                  <span class="status-badge badge-notpeer">{tag}</span>
+                </>
+              ))}
+            </div>
+            <div class="pli-title">{pub.title}</div>
+            <div class="pli-authors" set:html={pub.authors} />
           </div>
-          <div class="pli-title">g4chargeit: Geant4-based kinetic Monte Carlo simulations of charging in dielectric materials</div>
-          <div class="pli-authors">Gandhi, K. P., <strong>Vira, A. D.</strong>, Farrell, W. M., Simonov, N., Romero-Calvo, A., Orlando, T. M., First, P. N., and Jiang, Z.</div>
         </div>
-      </div>
-
-      <!-- 02 — Under Review -->
-      <div class="pub-list-item" data-url="https://arxiv.org/abs/2509.03334">
-        <span class="pli-index">02</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Planetary Science Journal · 2026</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-review">Under Review</span>
-          </div>
-          <div class="pli-title">Creation of Lunar-Like Rims in Ilmenite using Synthetic Solar Wind</div>
-          <div class="pli-authors">Trivedi, R. S., <strong>Vira, A. D.</strong>, Jones, B. M., Burgess, K. D., Huang, Z., Liu, H., Rane, P., Tian, M., Hirabayashi, M., Orlando, T. M., Jiang, Z., and First, P. N.</div>
-        </div>
-      </div>
-
-      <!-- 03 — Under Review -->
-      <div class="pub-list-item" data-url="">
-        <span class="pli-index">03</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">AGU Advances · 2026</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-review">Under Review</span>
-          </div>
-          <div class="pli-title">Solar Wind-induced Oxygen Vacancies Nucleate Nanophase Iron in Lunar Regolith</div>
-          <div class="pli-authors">Huang, Z., Trivedi, R. S., <strong>Vira, A. D.</strong>, Jiang, Z., First, P. N., Hirabayashi, M., Jones, B. M., and Orlando, T. M.</div>
-        </div>
-      </div>
-
-      <!-- 04 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1038/s41467-026-69770-w">
-        <span class="pli-index">04</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Nature Communications · 2026</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Trivalent Titanium in High-Titanium Lunar Ilmenite</div>
-          <div class="pli-authors"><strong>Vira, A. D.</strong>, Burgess, K. D., First, E. C., Tian, M., Eames, K. M., Trivedi, R. S., Dotson, G. K., Kim, D. M., Farr, T. P., Lisabeth, H., Tamura, N., Livernois, E. R., Jones, B. M., Orlando, T. M., Jiang, Z., and First, P. N.</div>
-        </div>
-      </div>
-
-      <!-- 05 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1038/s41467-025-67394-0">
-        <span class="pli-index">05</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Nature Communications · 2025</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Sharp spectroscopic fingerprints of disorder in an incompressible magnetic state</div>
-          <div class="pli-authors">Kim, C., Rathi, S., Zhang, N., Seth, A., Simonov, N. V., Rutherford, A., Chen, L., Zhou, H., Peng, C., Xu, M., Xie, W., <strong>Vira, A. D.</strong>, Tian, M., Ozerov, M., Kimchi, I., Mourigal, M., Smirnov, D., and Jiang, Z.</div>
-        </div>
-      </div>
-
-      <!-- 06 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.3847/PSJ/adfc4f">
-        <span class="pli-index">06</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Planetary Science Journal · 2025</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Solar wind sputtering of secondary ions from water-ice-covered regolith analogs</div>
-          <div class="pli-authors">Schaible, M. J., Dotson, G. K., Trivedi, R., <strong>Vira, A. D.</strong>, and Hand, K. P.</div>
-        </div>
-      </div>
-
-      <!-- 07 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1063/5.0163377">
-        <span class="pli-index">07</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">APL Materials · 2023</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Designing a boron nitride polyethylene composite for shielding neutrons</div>
-          <div class="pli-authors"><strong>Vira, A. D.</strong>, Mone, E. M., Ryan, E. A., Connolly, P. T., Smith, K., Roecker, C. D., Mesick, K. E., Orlando, T. M., Jiang, Z., and First, P. N.</div>
-        </div>
-      </div>
-
-      <!-- 08 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.3847/1538-3881/ac7218">
-        <span class="pli-index">08</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">The Astronomical Journal · 2022</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">The Airborne Infrared Spectrometer: Development, Characterization, and the 2017 August 21 Eclipse Observation</div>
-          <div class="pli-authors">Samra, J. E., Marquez, V., Cheimets, P., DeLuca, E. E., Golub, L., Hannigan, J. W., Madsen, C. A., <strong>Vira, A. D.</strong>, and Adams, A.</div>
-        </div>
-      </div>
-
-      <!-- 09 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1029/2020JA028862">
-        <span class="pli-index">09</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">JGR: Space Physics · 2021</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Bayesian Model for HOPE Mass Spectrometers on Van Allen Probes</div>
-          <div class="pli-authors"><strong>Vira, A. D.</strong>, Larsen, B. A., Skoug, R. M., and Fernandes, P. A.</div>
-        </div>
-      </div>
-
-      <!-- 10 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1063/1.5134768">
-        <span class="pli-index">10</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Review of Scientific Instruments · 2020</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Angular scattering of protons through ultrathin graphene foils: Application for time-of-flight instrumentation</div>
-          <div class="pli-authors"><strong>Vira, A. D.</strong>, Fernandes, P. A., Funsten, H. O., Morley, S. K., Yamaguchi, H., Liu, F., and Moody, N. A.</div>
-        </div>
-      </div>
-
-      <!-- 11 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1029/2020JA027971">
-        <span class="pli-index">11</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">JGR: Space Physics · 2020</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Understanding Mass Resolution of Foil-Based Time-of-Flight Mass Spectrometry</div>
-          <div class="pli-authors"><strong>Vira, A. D.</strong>, Fernandes, P. A., Skoug, R. M., Funsten, H. O., and Reisenfeld, D. B.</div>
-        </div>
-      </div>
-
-      <!-- 12 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1103/PhysRevA.101.042503">
-        <span class="pli-index">12</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Physical Review A · 2020</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Resonant two-photon spectroscopy of the 2s3d ¹D₂ level of neutral ⁹Be</div>
-          <div class="pli-authors">Cook, E. C., <strong>Vira, A. D.</strong>, and Williams, W. D.</div>
-        </div>
-      </div>
-
-      <!-- 13 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1007/s11207-019-1550-3">
-        <span class="pli-index">13</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Solar Physics · 2019</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Solar Eclipse Observations from the Ground and Air from 0.31 to 5.5 Microns</div>
-          <div class="pli-authors">Judge, P., Berkey, B., Boll, A., Bryans, P., Burkepile, J., Cheimets, P., DeLuca, E., De Toma, G., Gibson, K., Golub, L., Hannigan, J., Madsen, C., Marquez, V., Richards, A., Samra, J., Sewell, S., Tomczyk, S., and <strong>Vira, A. D.</strong></div>
-        </div>
-      </div>
-
-      <!-- 14 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1063/1.5008290">
-        <span class="pli-index">14</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Review of Scientific Instruments · 2018</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Calibrating an ultra-low expansion cavity for high precision spectroscopy from 630 THz to 685 THz using molecular tellurium lines</div>
-          <div class="pli-authors">Patterson, C., <strong>Vira, A. D.</strong>, Herd, M. T., Hawkins, W. B., and Williams, W. D.</div>
-        </div>
-      </div>
-
-      <!-- 15 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1103/PhysRevLett.121.053001">
-        <span class="pli-index">15</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">Physical Review Letters · 2018</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-          </div>
-          <div class="pli-title">Testing Quantum Electrodynamics in the Lowest Singlet State of Neutral Beryllium-9</div>
-          <div class="pli-authors">Cook, E. C., <strong>Vira, A. D.</strong>, Patterson, C., Livernois, E., and Williams, W. D.</div>
-        </div>
-      </div>
-
-      <!-- 16 — Published -->
-      <div class="pub-list-item" data-url="https://doi.org/10.1117/12.2319890">
-        <span class="pli-index">16</span>
-        <div class="pli-body">
-          <div class="pli-meta">
-            <span class="pli-venue">SPIE Proceedings · 2018</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-published">Published</span>
-            <span class="pli-dot"></span>
-            <span class="status-badge badge-notpeer">Conference Proceedings</span>
-          </div>
-          <div class="pli-title">Image stabilization for Airborne Infrared Spectrometer</div>
-          <div class="pli-authors"><strong>Vira, A. D.</strong>, Samra, J., Cheimets, P., DeLuca, E., Fedeler, S., Guth, G., and Marquez, V.</div>
-        </div>
-      </div>
-
+      ))}
     </div>
   </div>
 
   <script>
-  document.querySelectorAll('.pub-list-item[data-url]').forEach(item => {
-    item.addEventListener('click', () => {
-      const url = item.dataset.url;
-      if (url) window.open(url, '_blank');
+    document.querySelectorAll('.pub-list-item[data-url]').forEach(item => {
+      item.addEventListener('click', () => {
+        const url = (item as HTMLElement).dataset.url;
+        if (url) window.open(url, '_blank');
+      });
     });
-  });
   </script>
 
 </body>
+</html>

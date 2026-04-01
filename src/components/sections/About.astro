@@ -297,7 +297,7 @@ const sortedNews = newsUpdates
       border-radius: 8px;
       position: relative;
       z-index: 2;
-      height: 210px;        /* fixed height — adjust to taste */
+      height: 250px;        /* fixed height — adjust to taste */
       display: flex;
       flex-direction: column;
     }
@@ -369,7 +369,7 @@ const sortedNews = newsUpdates
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.25rem 0.7rem;
+      padding: 0.25rem 0.5rem;
       border: 1px solid rgba(79, 142, 247, 0.8);
       border-radius: 6px;
       transition: all 0.2s;
@@ -384,10 +384,10 @@ const sortedNews = newsUpdates
 
     @media (max-width: 800px) {
       header { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
-      .page { padding: 4rem 1.5rem 6rem; }
+      .page { padding: 4rem 1.5rem 4rem; }
       .member-body { flex-direction: column; gap: 2rem; }
-      .member-portrait-col { width: 100%; }
-      .member-portrait { height: 320px; }
+      .member-portrait-col { width: 80%; max-width: 80%; }  /* was width: 100% but max-width was unconstrained */
+      .member-portrait { height: auto; aspect-ratio: 3 / 4; } /* was fixed 320px */
       .footer-inner { flex-direction: column; gap: 1.5rem; align-items: center; }
       .news-banner { padding: 1.25rem; }
       .banner-label { font-size: 0.85rem; }
