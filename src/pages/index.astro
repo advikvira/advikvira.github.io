@@ -14,6 +14,19 @@ import { aboutInformation } from '../constants/about';
   <meta name="google-site-verification" content="xLMTYiV5PxCqZjTz8oTogsEpn155XRu_ouGudAbDwBM" />
   <meta name="description" content={aboutInformation.bioPlain} />
 
+    <!-- Canonical URL -->
+  <link rel="canonical" href={`https://${aboutInformation.domain}/`} />
+
+  <!-- Open Graph (controls how the page appears when shared/crawled) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content={`https://${aboutInformation.domain}/`} />
+  <meta property="og:title"       content={`${aboutInformation.firstName} ${aboutInformation.lastName}`} />
+  <meta property="og:description" content={aboutInformation.bioPlain} />
+  <meta property="og:image"       content={`https://${aboutInformation.domain}${aboutInformation.photo}`} />
+
+  <!-- Robots directive — explicitly tell crawlers to index -->
+  <meta name="robots" content="index, follow" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN4SQRP2M3"></script>
   <script>

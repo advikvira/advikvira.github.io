@@ -29,7 +29,7 @@ export const researchInformation = {
           links: [{ href: "https://www.nature.com/articles/s41467-026-69770-w", label: "Nat. Comm. (2026) - Trivalent Ti in Lunar Ilmenite", external: true }],
         },
       ],
-      methods: ["Focused Ion Beam", "Scanning Transmission Electron Microscopy", "STEM/EELS", "Hyperspy", "Noise Reduction Techniques"],
+      methods: ["Focused Ion Beam", "Transmission Electron Microscopy", "STEM/EELS", "Hyperspy", "Noise Reduction Techniques"],
       support: "STEM/EELS @ U.S. Naval Research Laboratory.<br> NASA Solar System Exploration Research Institute (SSERVI): ",
       link: { href: "https://clever.research.gatech.edu/", label: "Center for Lunar Environment and Volatile Exploration Research (CLEVER)", external: false },
     },    
