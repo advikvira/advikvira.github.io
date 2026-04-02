@@ -4,7 +4,7 @@ export const researchInformation = {
   picture: "/attachments/overview-v4.png",
   general: `My research interests lie at the intersection of materials science, 
             planetary science, and space physics, approached from a physics perspective 
-            using both computational and experimental methods.`,
+            using computational and experimental methods.`,
   topics: [
     {
       id: "Lunar Geoscience",
@@ -12,7 +12,7 @@ export const researchInformation = {
       sections: [
         {
           label: "Overview",
-          text: `The Moon serves as a natural achive of early geological history of the 
+          text: `The Moon serves as a natural archive of early geological history of the 
                   Earth-Moon systen. Unaltered lunar material offers a window into the events 
                   that occured nearly four billion years ago. Using advanced electron microscopy 
                   and spectroscopy techniques, we can characterize the structure and composition 
