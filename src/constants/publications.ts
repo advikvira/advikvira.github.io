@@ -13,8 +13,8 @@ export interface Publication {
 
 export const publicationInformation = {
   stats: {
-    published: 13,
-    underReview: 3,
+    published: 14,
+    underReview: 2,
   },
   publications: [
     {
