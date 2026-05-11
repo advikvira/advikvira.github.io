@@ -8,6 +8,10 @@ export interface NewsUpdate {
 
 export const newsUpdates: NewsUpdate[] = [
   {
+    title: "Graduated from Georgia Tech with my Ph.D. in Physics 🎉 🎓",
+    date: "[05/07/2026]",
+  },
+  {
   titleParts: [
     { text: "Congratulations to ", url: null },
     { text: "Kush Gandhi", url: "https://www.linkedin.com/in/kush-gandhi-9483a1211/" },

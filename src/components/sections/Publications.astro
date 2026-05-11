@@ -4,6 +4,7 @@ import { publicationInformation } from '../../constants/publications';
 
 const badgeClass: Record<string, string> = {
   published: 'badge-published',
+  accepted:  'badge-accepted',
   review:    'badge-review',
   submitted: 'badge-submitted',
   notpeer:   'badge-notpeer',
@@ -11,6 +12,7 @@ const badgeClass: Record<string, string> = {
 
 const badgeLabel: Record<string, string> = {
   published: 'Published',
+  accepted: 'Accepted',
   review:    'Under Review',
   submitted: 'Submitted',
   notpeer:   'Not Peer Reviewed',
@@ -143,7 +145,15 @@ const badgeLabel: Record<string, string> = {
     .pli-title {
       font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700;
       line-height: 1.35; color: var(--text); transition: color 0.2s; margin-bottom: 0.3rem;
+      display: flex; align-items: flex-start; gap: 0.4rem;
     }
+    .pli-title-text { flex: 1; }
+    .pli-link-icon {
+      flex-shrink: 0; opacity: 0; transform: translate(-4px, -4px);
+      transition: opacity 0.2s, transform 0.2s;
+      color: var(--accent); margin-top: 0.15rem;
+    }
+    .pub-list-item:hover .pli-link-icon { opacity: 1; transform: translate(0, 0); }
     .pli-authors { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
     .pli-authors :global(strong) { color: var(--accent2); font-weight: 700; }
 
@@ -185,6 +195,10 @@ const badgeLabel: Record<string, string> = {
     </div>
     <div class="hero-meta">
       <div class="hero-stat">
+        <span class="hero-stat-num">{publicationInformation.stats.accepted}</span>
+        <span class="hero-stat-label">Accepted</span>
+      </div>
+      <div class="hero-stat">
         <span class="hero-stat-num">{publicationInformation.stats.published}</span>
         <span class="hero-stat-label">Published</span>
       </div>
@@ -214,7 +228,17 @@ const badgeLabel: Record<string, string> = {
                 </>
               ))}
             </div>
-            <div class="pli-title">{pub.title}</div>
+
+            <div class="pli-title">
+              <span class="pli-title-text">{pub.title}</span>
+              {pub.url && (
+                <svg class="pli-link-icon" width="12" height="12" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M7 17L17 7M7 7h10v10"/>
+                </svg>
+              )}
+            </div>
+
             <div class="pli-authors" set:html={pub.authors} />
           </div>
         </div>
