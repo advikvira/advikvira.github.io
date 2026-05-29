@@ -14,11 +14,19 @@ export interface Publication {
 export const publicationInformation = {
   stats: {
     published: 14,
-    underReview: 2,
+    underReview: 3,
   },
   publications: [
     {
       id: 1,
+      venue: "JGR: Space Physics",
+      year: 2026,
+      status: "review",
+      title: "Exploiting the Physics of Ion Energy Loss in Solid State Detectors for Composition Measurement of Space Plasmas",
+      authors: "Funsten, H. O., Dors, E. E., Fernandes, P. A., Harper, R. W., Ritzau, S. M., Skoug, R. M., Steinberg, J. T., and <strong>Vira, A. D.</strong>",
+    },
+    {
+      id: 2,
       venue: "Journal of Computational Physics",
       year: 2026,
       status: "review",
@@ -27,7 +35,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.2139/ssrn.6352017",
     },
     {
-      id: 2,
+      id: 3,
       venue: "AGU Advances",
       year: 2026,
       status: "review",
@@ -35,7 +43,7 @@ export const publicationInformation = {
       authors: "Huang, Z., Trivedi, R. S., <strong>Vira, A. D.</strong>, Jiang, Z., First, P. N., Hirabayashi, M., Jones, B. M., and Orlando, T. M.",
     },
     {
-      id: 3,
+      id: 4,
       venue: "Planetary Science Journal",
       year: 2026,
       status: "accepted",
@@ -44,7 +52,7 @@ export const publicationInformation = {
       url: "https://arxiv.org/abs/2509.03334",
     },
     {
-      id: 4,
+      id: 5,
       venue: "Nature Communications",
       year: 2026,
       status: "published",
@@ -53,7 +61,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1038/s41467-026-69770-w",
     },
     {
-      id: 5,
+      id: 6,
       venue: "Nature Communications",
       year: 2025,
       status: "published",
@@ -62,7 +70,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1038/s41467-025-67394-0",
     },
     {
-      id: 6,
+      id: 7,
       venue: "Planetary Science Journal",
       year: 2025,
       status: "published",
@@ -71,7 +79,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.3847/PSJ/adfc4f",
     },
     {
-      id: 7,
+      id: 8,
       venue: "APL Materials",
       year: 2023,
       status: "published",
@@ -80,7 +88,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1063/5.0163377",
     },
     {
-      id: 8,
+      id: 9,
       venue: "The Astronomical Journal",
       year: 2022,
       status: "published",
@@ -89,7 +97,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.3847/1538-3881/ac7218",
     },
     {
-      id: 9,
+      id: 10,
       venue: "JGR: Space Physics",
       year: 2021,
       status: "published",
@@ -98,7 +106,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1029/2020JA028862",
     },
     {
-      id: 10,
+      id: 11,
       venue: "Review of Scientific Instruments",
       year: 2020,
       status: "published",
@@ -107,7 +115,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1063/1.5134768",
     },
     {
-      id: 11,
+      id: 12,
       venue: "JGR: Space Physics",
       year: 2020,
       status: "published",
@@ -116,7 +124,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1029/2020JA027971",
     },
     {
-      id: 12,
+      id: 13,
       venue: "Physical Review A",
       year: 2020,
       status: "published",
@@ -125,7 +133,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1103/PhysRevA.101.042503",
     },
     {
-      id: 13,
+      id: 14,
       venue: "Solar Physics",
       year: 2019,
       status: "published",
@@ -134,7 +142,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1007/s11207-019-1550-3",
     },
     {
-      id: 14,
+      id: 15,
       venue: "Review of Scientific Instruments",
       year: 2018,
       status: "published",
@@ -143,7 +151,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1063/1.5008290",
     },
     {
-      id: 15,
+      id: 16,
       venue: "Physical Review Letters",
       year: 2018,
       status: "published",
@@ -152,7 +160,7 @@ export const publicationInformation = {
       url: "https://doi.org/10.1103/PhysRevLett.121.053001",
     },
     {
-      id: 16,
+      id: 17,
       venue: "SPIE Proceedings",
       year: 2018,
       status: "published",
