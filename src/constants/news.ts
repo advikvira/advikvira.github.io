@@ -8,12 +8,29 @@ export interface NewsUpdate {
 
 export const newsUpdates: NewsUpdate[] = [
   {
-    title: "Graduated from Georgia Tech with my Ph.D. in Physics 🎉 🎓",
+    titleParts: [
+      { text: "Check out Georgia Tech press release for our ", url: null },
+      { text: "PSJ manuscript", url: "https://iopscience.iop.org/article/10.3847/PSJ/ae6074" },
+    ],
+    url: "https://research.gatech.edu/georgia-tech-scientists-create-moon-rock-lab",
+    date: "[06/10/2026]",
+  },
+  {
+    titleParts: [
+      { text: "Congrats to ", url: null },
+      { text: "Roshan Trivedi", url: "https://www.linkedin.com/in/roshan-trivedi-4b65b4202/" },
+      { text: " on publishing his first paper!", url: null },
+    ],
+    url: "https://iopscience.iop.org/article/10.3847/PSJ/ae6074",
+    date: "[06/10/2026]",
+  },
+  {
+    title: "I graduated from Georgia Tech with my Ph.D. in Physics 🎉 🎓",
     date: "[05/07/2026]",
   },
   {
   titleParts: [
-    { text: "Congratulations to ", url: null },
+    { text: "Congrats to ", url: null },
     { text: "Kush Gandhi", url: "https://www.linkedin.com/in/kush-gandhi-9483a1211/" },
     { text: " for receiving the NSF GRFP and joining Duke University this fall!", url: null },
   ],

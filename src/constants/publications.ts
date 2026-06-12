@@ -46,10 +46,10 @@ export const publicationInformation = {
       id: 4,
       venue: "Planetary Science Journal",
       year: 2026,
-      status: "accepted",
+      status: "published",
       title: "Creation of Lunar-Like Rims in Ilmenite using Synthetic Solar Wind",
       authors: "Trivedi, R. S., <strong>Vira, A. D.</strong>, Jones, B. M., Burgess, K. D., Huang, Z., Liu, H., Rane, P., Tian, M., Hirabayashi, M., Orlando, T. M., Jiang, Z., and First, P. N.",
-      url: "https://arxiv.org/abs/2509.03334",
+      url: "https://iopscience.iop.org/article/10.3847/PSJ/ae6074",
     },
     {
       id: 5,
