@@ -44,7 +44,7 @@ export const researchInformation = {
                  resulting in structural and compositional alterations. We irradiate terrestrial ilmenite to simulate the solar wind and characterize the 
                  induced formation of nanophase iron (npFe) and its associated microscopic changes 
                  using electron microscopy.`,
-          links: [{ href: "https://iopscience.iop.org/article/10.3847/PSJ/ae6074", label: "Planet. Sci. J. (2026) — Creation of npFe in ilmenite", external: true}],
+          links: [{ href: "https://iopscience.iop.org/article/10.3847/PSJ/ae6074", label: "Planet. Sci. J. (2026) — npFe in ilmenite", external: true}],
         },
         {
           label: "Topic 2",
