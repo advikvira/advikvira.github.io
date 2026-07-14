@@ -26,7 +26,7 @@ export const aboutInformation = {
   bio: `I am trained as a <u>physicist</u> with a background in computational and experimental methods.
         Currently, I am a Postdoctoral Associate in the Intelligence and Space Research (ISR) 
         Division at <strong>Los Alamos National Laboratory</strong>. My postdoctoral research focuses 
-        on the development and analysis of charged-particle instrumentation for space applications.<br><br>
+        on the development and analysis of charged-particle instrumentation for space sciences.<br><br>
 
         I earned my Ph.D. in Physics from the <strong>Georgia Institute of Technology</strong>, where my 
         research combined computational modeling with atomic-scale characterization of Apollo lunar materials. 
