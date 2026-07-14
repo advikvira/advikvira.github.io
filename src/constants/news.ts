@@ -8,6 +8,10 @@ export interface NewsUpdate {
 
 export const newsUpdates: NewsUpdate[] = [
   {
+    title: "Started my Postdoctoral Research at Los Alamos National Laboratory 🎉 ",
+    date: "[07/13/2026]",
+  },
+  {
     titleParts: [
       { text: "Check out Georgia Tech press release for our ", url: null },
       { text: "PSJ manuscript", url: "https://iopscience.iop.org/article/10.3847/PSJ/ae6074" },
