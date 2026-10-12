@@ -13,8 +13,8 @@ export interface Publication {
 
 export const publicationInformation = {
   stats: {
-    published: 14,
-    underReview: 3,
+    published: 16,
+    underReview: 2,
   },
   publications: [
     {
@@ -30,7 +30,7 @@ export const publicationInformation = {
       venue: "IEEE Aerospace Conference Proceeding",
       year: 2026,
       status: "review",
-      title: "{The Autonomous Ion Mass Spectrometer Sentry: Measuring Space Plasma and Contamination on the ISS",
+      title: "The Autonomous Ion Mass Spectrometer Sentry: Measuring Space Plasma and Contamination on the ISS",
       authors: "Maldonado, C. A., <strong>Vira, A. D.</strong>, Moran, K. R., Ulrich, R., Larsen, S., Wilson G., Arnold D., Buck S., Castro, L. A., et al."
     },
     {
