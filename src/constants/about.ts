@@ -8,7 +8,7 @@ export const aboutInformation = {
   email:        "advikdvira@gmail.com",
   domain:       "www.advikdvira.com",
   linkedin:     "https://www.linkedin.com/in/advik-vira",
-  googlescholar:"https://scholar.google.com/citations?user=yfkVSRgAAAAJ&hl=en&oi=ao",
+  googlescholar:"https://scholar.google.com/citations?hl=en&user=49tUc00AAAAJ",
   orcid:        "https://orcid.org/0000-0003-0869-4951",
   researchgate: "https://www.researchgate.net/profile/Advik-Vira?ev=prf_overview",
   github:       "https://github.com/advikvira",
