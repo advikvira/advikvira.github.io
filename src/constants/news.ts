@@ -8,6 +8,11 @@ export interface NewsUpdate {
 
 export const newsUpdates: NewsUpdate[] = [
   {
+    title: "Our g4chargeit manuscript was published in J. Comput. Phys. 🎉",
+    url: "https://doi.org/10.1016/j.jcp.2026.115479",
+    date: "[10/12/2026]",
+  },
+  {
     title: "Started my Postdoctoral Research at Los Alamos National Laboratory 🎉 ",
     date: "[07/13/2026]",
   },

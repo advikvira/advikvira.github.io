@@ -27,20 +27,20 @@ export const publicationInformation = {
     },
     {
       id: 2,
-      venue: "Journal of Computational Physics",
+      venue: "IEEE Aerospace Conference Proceeding",
       year: 2026,
       status: "review",
-      title: "g4chargeit: Geant4-based kinetic Monte Carlo simulations of charging in dielectric materials",
-      authors: "Gandhi, K. P., <strong>Vira, A. D.</strong>, Farrell, W. M., Simonov, N., Romero-Calvo, A., Orlando, T. M., First, P. N., and Jiang, Z.",
-      url: "https://doi.org/10.2139/ssrn.6352017",
+      title: "{The Autonomous Ion Mass Spectrometer Sentry: Measuring Space Plasma and Contamination on the ISS",
+      authors: "Maldonado, C. A., <strong>Vira, A. D.</strong>, Moran, K. R., Ulrich, R., Larsen, S., Wilson G., Arnold D., Buck S., Castro, L. A., et al."
     },
     {
       id: 3,
-      venue: "AGU Advances",
+      venue: "Journal of Computational Physics",
       year: 2026,
-      status: "review",
-      title: "Solar Wind-induced Oxygen Vacancies Nucleate Nanophase Iron in Lunar Regolith",
-      authors: "Huang, Z., Trivedi, R. S., <strong>Vira, A. D.</strong>, Jiang, Z., First, P. N., Hirabayashi, M., Jones, B. M., and Orlando, T. M.",
+      status: "published",
+      title: "g4chargeit: Geant4-based kinetic Monte Carlo simulations of charging in dielectric materials",
+      authors: "Gandhi, K. P., <strong>Vira, A. D.</strong>, Farrell, W. M., Simonov, N., Romero-Calvo, A., Orlando, T. M., First, P. N., and Jiang, Z.",
+      url: "https://doi.org/10.1016/j.jcp.2026.115479",
     },
     {
       id: 4,
