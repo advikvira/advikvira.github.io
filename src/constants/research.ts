@@ -53,7 +53,7 @@ export const researchInformation = {
                   We simulate the charge accumulation within intergrain micro-cavities using a kinetic 
                   Monte Carlo approach by connecting the microscopic scattering events to the macroscopic 
                   surface charge. `,
-          links: [{ href: "https://arxiv.org/abs/2602.17332", label: "J. Comput. Phys. (2027) — g4chargeit", external: true}],
+          links: [{ href: "https://doi.org/10.1016/j.jcp.2026.115479", label: "J. Comput. Phys. (2027) — g4chargeit", external: true}],
         },
       ],
       methods: ["Ion Irradiation","Electron Microscopy", "S/TEM", "EELS", "Hyperspy", "Monte Carlo","SDTrimSP", "SRIM/TRIM", "Geant4", "Kinetic Monte Carlo"],
